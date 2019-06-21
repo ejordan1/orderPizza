@@ -25,7 +25,18 @@
         <a href="about.html">About</a>
       </div>
       <div class="navItem">
-        <a href="cart.html">Cart</a>
+        <a href="cart.html">Checkout</a>
+      </div>
+    </div>
+    <div class="cart">
+      <div class="cartTitle">
+        Cart
+      </div>
+      <ol>
+
+      </ol>
+      <div class="totalPrice">
+
       </div>
     </div>
     <div class="gridMainArea meatPizzaSelect">
@@ -65,22 +76,27 @@
         <div class="card-img-bottom bg-warning">
         </div>
       </div>
-      <div class="pizzaForm">
+      <div id="pizzaForm">
         <div class="currentPizzaTypeHeader">
-
         </div>
         <form class="makePizzaForm" action="index.html" method="post">
+          <br>
           <select class = pizzaSize>
+
             <option value="8">Small-8"</option>
             <option value="12">Medium-12"</option>
             <option value="16">Large-16"</option>
           </select>
-
-          <input type="checkbox" name="extraToppings" value="Green Peppers">Green Peppers<br>
-          <input type="checkbox" name="extraToppings" value="Onions">Onions<br>
-          <input type="checkbox" name="extraToppings" value="Mushrooms">Mushrooms<br>
-          <label for="note">Added Requests?</label>
+          <br>
+          <br>
+          <input class = "check" type="checkbox" name="extraToppings" value="Green Peppers">Green Peppers<br>
+          <input class = "check" type="checkbox" name="extraToppings" value="Onions">Onions<br>
+          <input class = "check" type="checkbox" name="extraToppings" value="Mushrooms">Mushrooms<br>
+            <br>
+          <label for="note">Special Requests?</label>
           <input id = "note" type="text" name="" value="">
+            <br>
+              <br>
           <button type="submit" name="button">Add To Cart</button>
         </form>
       </div>

@@ -8,7 +8,8 @@ body{
 
 .grid{
   display: grid;
-    grid-template-columns: 150px auto;
+  max-width: 1200;
+    grid-template-columns: 150px auto 270px;
     grid-template-rows: 100px auto;
     height: 100vh;
 }
@@ -16,7 +17,7 @@ body{
   background-color: lightgrey;
   text-align: center;
   grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column-end: 4;
   grid-row-start: 1;
 }
 
@@ -26,6 +27,13 @@ body{
   grid-column-start: 1;
   grid-row-start: 2;
   grid-row-end: 3;
+}
+
+.cart{
+  grid-column-start: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  background-color: lightblue;
 }
 
 .navItem{
@@ -71,10 +79,10 @@ img{
   text-align: center;
 }
 
-.pizzaForm{
-  float: left;
+#pizzaForm{
   display: none;
-  width: 1000px;
-  height: 700px;
+  float: left;
+  height: 400px;
+  width: 800px;
   background-color: grey;
 }
