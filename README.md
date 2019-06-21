@@ -26,9 +26,9 @@ _{Are there issues that have not yet been resolved that you want to let users kn
 
 _{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
 
-| Tables        | Are           | Cool  |
+| Behavior        | Input           | Output  |
 | ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
+| pizza cost is displayed according to choices      | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |
 
