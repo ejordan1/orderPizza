@@ -159,22 +159,32 @@ var piz2 = new Pizza(16, "vegePizza", toppings1);
 var order1 = new OrderForm(person1);
 var order2 = new OrderForm(person1);
 //no longer automatically makes itemlist
-order1.itemList.addPizza(piz1);
-order2.itemList.addPizza(piz1);
-order2.itemList.addPizza(piz2);
-//console.log(order1.toString());
-magOrders.addOrder(order1);
-magOrders.addOrder(order2);
-console.log(magOrders.toString());
-
-
-
+// order1.itemList.addPizza(piz1);
+// order2.itemList.addPizza(piz1);
+// order2.itemList.addPizza(piz2);
+// //console.log(order1.toString());
+// magOrders.addOrder(order1);
+// magOrders.addOrder(order2);
+// console.log(magOrders.toString());
 //instantly makes new item list, that is the cart
 
 //choose type, choose specific pizza, costumize, choose size, add to cart which creates the pizza and adds to itemList
 //then when you go to checkout it asks for user info, creates userInfo
 //then when you go place order it creates an order form passing in userInfo and itemList, and adds that to do orderList
-
 //we can have some local variables for client: cart
-
 //step 1: create nav system between pizza types
+//ASSUME DATABASE IS INCLUDED
+
+
+
+//MEAT PIZZA PAGE
+$(function(){
+  $("#meatPizza1").click(function(event){
+    bringOutPizzaForm();
+  });
+});
+
+function bringOutPizzaForm(){
+  $(".pizzaForm").toggle();
+  window.scrollBy(0, 700);
+}

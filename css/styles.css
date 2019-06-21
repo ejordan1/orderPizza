@@ -2,7 +2,7 @@ body{
   background-color: #160813;
 }
 
-.gridMain{
+.grid{
   display: grid;
     grid-template-columns: 150px auto;
     grid-template-rows: 100px auto;
@@ -28,7 +28,12 @@ body{
   padding: 15px;
 }
 
-.pizzaTypes{
+.gridMainArea{
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.itemArea{
   grid-column-start: 2;
   grid-row-start: 2;
 }
@@ -37,7 +42,7 @@ img{
   object-fit: contain;
 }
 
-.pizzaType{
+.item{
   float: left;
   width: 300px !important;
   height: 200px !important;
@@ -60,4 +65,13 @@ img{
 
 .card-header{
   text-align: center;
+}
+
+.pizzaForm{
+
+  float: left;
+  display: none;
+  width: 1000px;
+  height: 700px;
+  background-color: grey;
 }
