@@ -4,7 +4,7 @@
 // var pepperoni = ["pepperoni"];
 // var hawaiian = ["ham", "pinapple"];
 
-var cart = new ItemList();
+
 
 function Pizza(size, pizzaType, extraToppings, note){
   this.size = size;
@@ -174,17 +174,40 @@ var order2 = new OrderForm(person1);
 //we can have some local variables for client: cart
 //step 1: create nav system between pizza types
 //ASSUME DATABASE IS INCLUDED
-
-
+var totalExtraToppings = 3;
+var currentPizzaType;
+var cart = new ItemList();
+var meatPizzaTypes = ["Meatlover", "Anchovy", "Pepperoni", "Hawaiian"];
 
 //MEAT PIZZA PAGE
 $(function(){
-  $("#meatPizza1").click(function(event){
-    bringOutPizzaForm();
+  //makes click function for each pizza type
+  meatPizzaTypes.forEach(function(pizzaType){
+    $("#" + pizzaType).click(function(event){
+      bringOutPizzaForm();
+      //this is a bad system
+      currentPizzaType = pizzaType;
+    });
+  });
+  //makes submit function
+  $(".makePizzaForm").submit(function(event){
+    event.preventDefault();
+    debugger;
+    var pizzaSize = $(".pizzaSize option:selected").text();
+    var extraToppings = [];
+    //collects extra toppings and puts in extratoppings array
+    $("input:checkbox[name=extraToppings]:checked").each(function(){
+     extraToppings.push($(this).val());
+    });
+    var extraNote = $("#note").val();
+    var newPizza = new Pizza(pizzaSize, currentPizzaType, extraToppings, extraNote);
+    cart.addPizza(newPizza);
+    console.log(cart.toString());
   });
 });
 
 function bringOutPizzaForm(){
+  // $(".currentPizzaTypeHeader");
   $(".pizzaForm").toggle();
   window.scrollBy(0, 700);
 }
