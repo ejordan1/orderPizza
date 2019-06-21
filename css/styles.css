@@ -1,0 +1,63 @@
+body{
+  background-color: #160813;
+}
+
+.gridMain{
+  display: grid;
+    grid-template-columns: 150px auto;
+    grid-template-rows: 100px auto;
+    height: 100vh;
+}
+.header{
+  background-color: lightgrey;
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+}
+
+.navBar{
+  background-color: white;
+  text-align: center;
+  grid-column-start: 1;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.navItem{
+  padding: 15px;
+}
+
+.pizzaTypes{
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+img{
+  object-fit: contain;
+}
+
+.pizzaType{
+  float: left;
+  width: 300px !important;
+  height: 200px !important;
+  max-width: 300px !important;
+  max-height: 200px !important;
+  margin: 15px;
+}
+
+#meatBody{
+  background-image: url("https://emilybites.com/wp-content/uploads/2011/12/Meat-Lover-27s-Pizza-1c.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+
+#vegeBody{
+  background-image: url("https://media-cdn.tripadvisor.com/media/photo-s/03/49/e1/1a/wild-on-waiheke.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+
+.card-header{
+  text-align: center;
+}

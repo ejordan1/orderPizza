@@ -1,6 +1,15 @@
-function Pizza(size, toppings, note){
+// var pizzaTypes = [];
+// var vegePizza = ["onion", "broccoli", "tomato", "pepper"];
+// var meatPizza = ["chicken", "pepperoni", "ham"];
+// var pepperoni = ["pepperoni"];
+// var hawaiian = ["ham", "pinapple"];
+
+var cart = new ItemList();
+
+function Pizza(size, pizzaType, extraToppings, note){
   this.size = size;
-  this.toppings = toppings.slice(0);
+  pizzaType.type = pizzaType;
+  this.extraToppings = extraToppings.slice(0);
   this.note = note;
 }
 Pizza.prototype.cost = function(){
@@ -17,15 +26,16 @@ Pizza.prototype.cost = function(){
     break;
     default:
   }
-  totalCost += toppings.length * 1;
+  return totalCost += extraToppings.length * 1;
 }
 
 Pizza.prototype.toString = function(){
   var str = "";
   str += "Size: " + this.size;
-  str += "; Toppings: " + this.toppings.toString();
+  str += ", Type: " + this.pizzaType;
+  str += ", Extra Toppings: " + this.extraToppings.toString();
   if (this.note){
-    str += "; note: " + this.note;
+    str += "\n----" + this.note;
   }
   return str;
 }
@@ -69,20 +79,22 @@ ItemList.prototype.addPizza = function(pizza){
 ItemList.prototype.toString = function(){
   var str = "Pizzas: ";
   this.pizzas.forEach(function(pizza){
+    str += "\n";
     str += pizza.toString();
   });
   return str;
 }
 
-function OrderForm(costumerInfo){
+function OrderForm(costumerInfo, itemList){
   this.costumerInfo = costumerInfo;
   this.orderStatus = "placed";
-  this.itemList = new ItemList();
+  this.itemList = itemList;
 }
 
 OrderForm.prototype.toString = function(){
   var str = "";
   str += this.costumerInfo.toString();
+  str += "\n";
   str += this.itemList.toString();
   return str;
 }
@@ -128,7 +140,6 @@ OrderList.prototype.deleteOrderById = function(id){
 OrderList.prototype.toString = function(){
   var str = "";
   str += "ORDERS: "
-
   this.orders.forEach(function(order){
     str += "\n\n[" + order.getId() +"] " + order.toString();
   });
@@ -142,17 +153,28 @@ var address1 = new Address("4200 N Diego", "Seattle", "WA", "98124");
 var person1 = new CostumerInfo("John", "Smith", "24035203", address1);
 //console.log(person1.toString());
 var toppings1 = ["spinach, tomato, cheese"];
-var piz1 = new Pizza(8, toppings1);
-var piz2 = new Pizza(16, toppings1);
+var piz1 = new Pizza(8, "meatPizza", toppings1, "no chicken, extra sausage");
+var piz2 = new Pizza(16, "vegePizza", toppings1);
 //console.log(piz1.toString());
 var order1 = new OrderForm(person1);
 var order2 = new OrderForm(person1);
+//no longer automatically makes itemlist
 order1.itemList.addPizza(piz1);
 order2.itemList.addPizza(piz1);
+order2.itemList.addPizza(piz2);
 //console.log(order1.toString());
 magOrders.addOrder(order1);
 magOrders.addOrder(order2);
 console.log(magOrders.toString());
 
 
-//how to create an object inside an object? do this form itemslist inside orderform
+
+//instantly makes new item list, that is the cart
+
+//choose type, choose specific pizza, costumize, choose size, add to cart which creates the pizza and adds to itemList
+//then when you go to checkout it asks for user info, creates userInfo
+//then when you go place order it creates an order form passing in userInfo and itemList, and adds that to do orderList
+
+//we can have some local variables for client: cart
+
+//step 1: create nav system between pizza types
