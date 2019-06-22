@@ -4,8 +4,6 @@
 // var pepperoni = ["pepperoni"];
 // var hawaiian = ["ham", "pinapple"];
 
-
-
 function Pizza(size, pizzaType, extraToppings, note){
   this.size = size;
   this.pizzaType = pizzaType;
@@ -223,14 +221,28 @@ function bringOutPizzaForm(pizzaType){
   window.scrollBy(0, 700);
 }
 
+
 function updateCartView(itemList){
   //delete everything from cart, then add items again
   $(".cart ol").html("");
-  itemList.pizzas.forEach(function(item){
-    $(".cart ol").append("<li>" + item.toString() + "<br>" + "$" +  item.getPrice() + "</li>");
-  });
+  for(var i = 0; i < itemList.pizzas.length; i++){
+    if (i === itemList.pizzas.length - 1){
+      $(".cart ol").append("<li id = 'lastItem'></li>");
+      setTimeout(function(){
+        slowType(itemList.pizzas[itemList.pizzas.length - 1], itemList.pizzas[itemList.pizzas.length - 1].toString());
+      }, 500);
+    } else {
+      $(".cart ol").append("<li>" + itemList.pizzas[i].toString() +
+       "<br>" + "$" +  itemList.pizzas[i].getPrice() + "</li>");
+    }
+  }
+  // itemList.pizzas.forEach(function(item){
+  //   $(".cart ol").append("<li>" + item.toString() + "<br>" + "$" +  item.getPrice() + "</li>");
+  // });
+  setTimeout(function(){
+    $(".totalPrice").text("Total: $" + getTotalPrice(itemList));
+  }, 3000)
 
-  $(".totalPrice").text("Total: $" + getTotalPrice(itemList));
 }
 
 function getTotalPrice(itemList){
@@ -240,3 +252,17 @@ function getTotalPrice(itemList){
   });
   return price;
 }
+
+function slowType(pizza, pizzaStr, totalStr){
+  if (pizzaStr.length === 0){
+    $("#lastItem").html(totalStr + "<br>" + "$" +  pizza.getPrice());
+  } else {
+    newStr = totalStr + pizzaStr.substring(0,1);
+    $("#lastItem").text(newStr);
+    setTimeout(function(){
+      slowType(pizza, pizzaStr.slice(1), newStr);
+    },30);
+  }
+
+}
+// + item.toString() + "<br>" + "$" +  item.getPrice() +

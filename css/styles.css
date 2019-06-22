@@ -61,6 +61,7 @@ img{
   max-width: 300px !important;
   max-height: 200px !important;
   margin: 15px;
+
 }
 
 #meatBody{
@@ -75,6 +76,11 @@ img{
   background-size:cover;
 }
 
+.card-body{
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+
 .card-header{
   text-align: center;
 }
@@ -83,6 +89,31 @@ img{
   display: none;
   float: left;
   height: 400px;
-  width: 800px;
+  width: 600px;
   background-color: grey;
+}
+
+#Meatlover{
+  background-image: url("https://media-cdn.tripadvisor.com/media/photo-s/08/a4/4e/92/zachary-s-all-meat-pizza.jpg")
+}
+#Anchovy{
+  background-image: url("https://vignette.wikia.nocookie.net/runescape2/images/1/14/Anchovy_pizza_detail.png/revision/latest?cb=20160304150537")
+}
+#Pepperoni{
+  background-image: url("https://dylzm7u8zqclv.cloudfront.net/2019/03/25/03/57/26/93ddc5f0-6366-416f-ac48-611bb408954b/mini%20pepperoni%20pizza.jpg")
+}
+#Hawaiian{
+  background-image: url("https://images.food52.com/o4Vwq1amxnu-bFunSECoDU-BA8Q=/1200x900/b68610b3-cc3e-4812-af2c-449c68c35273--2018-1127_ken-forkish-hawaiian-pizza-genius_3x2_rocky-luten_003_v2.jpg")
+}
+#VegeLover{
+  background-image: url("https://mozartcafebocaraton.com/wp-content/uploads/2017/04/vege_pizza.jpg")
+}
+#LotsMushrooms{
+  background-image: url("https://www.177milkstreet.com/assets/site/_large/Roasted-Mushroom-Pizza-with-Fontina-and-Scallions.jpg")
+}
+#Treehugger{
+  background-image: url("https://media-cdn.tripadvisor.com/media/photo-s/0e/ad/9e/16/tree-hugger-pizza.jpg")
+}
+#SpicyOnion{
+  background-image: url("https://assets.marthastewart.com/styles/wmax-750/d23/white-pizza-172-d112100/white-pizza-172-d112100_horiz.jpg?itok=KoRSmCVm")
 }
